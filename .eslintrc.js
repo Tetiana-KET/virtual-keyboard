@@ -18,6 +18,9 @@ module.exports = {
         "space-in-parens": "error",//Enforce consistent spacing inside parentheses
         "no-multiple-empty-lines": "error",//Disallow multiple empty lines
         "prefer-const": "error",//Require const declarations for variables that are never reassigned after declared
-        "no-use-before-define": "error"//Disallow the use of variables before they are defined
+        "no-use-before-define": "error",//Disallow the use of variables before they are defined
+        "eqeqeq": "warn",//Require the use of === and !==
+        "curly": "error",//Enforce consistent brace style for all control statements
+        "quotes": ["error", "double"]//Enforce the consistent use of either backticks, double, or single quotes
     },
 };
