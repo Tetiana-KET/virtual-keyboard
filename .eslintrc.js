@@ -23,7 +23,8 @@ module.exports = {
     "eqeqeq": "warn",//Require the use of === and !==
     "curly": "error",//Enforce consistent brace style for all control statements
     "quotes": ["error", "double"],//Enforce the consistent use of either backticks, double, or single quotes
-    "space-infix-ops": ["error", { "int32Hint": false }]//Требовать пробелы вокруг инфиксных операторов =/+/-
+    "space-infix-ops": ["error", { "int32Hint": false }],//Требовать пробелы вокруг инфиксных операторов =/+/-
+    "key-spacing": ["error", { "afterColon": true }]
   },
   //Error: Failed to load parser 'babel-eslint' declared in '.eslintrc.js': => //npm install eslint@4.x babel-eslint@8 - g - 
   // npx eslint -h//help
