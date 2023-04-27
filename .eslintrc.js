@@ -9,9 +9,9 @@ module.exports = {
   },
   "extends": "eslint:recommended",
   rules: {
-    "no-console": warn,
-    "import/prefer-default-export": warn,
-    "prefer-template": warn,//Require template literals instead of string concatenation
+    "no-console": 1,
+    "import/prefer-default-export": 0,
+    "prefer-template": 0,//Require template literals instead of string concatenation
     "no-var": "error",//Require let or const instead of var
     "semi": ["error", "always"],//Require or disallow semicolons instead of ASI
     "indent": ["error", 2],//Enforce consistent indentation
@@ -23,7 +23,11 @@ module.exports = {
     "eqeqeq": "warn",//Require the use of === and !==
     "curly": "error",//Enforce consistent brace style for all control statements
     "quotes": ["error", "double"],//Enforce the consistent use of either backticks, double, or single quotes
+    "space-infix-ops": ["error", { "int32Hint": false }]//Требовать пробелы вокруг инфиксных операторов =/+/-
   },
-    //npx eslint -h//help
-    //npx eslint --fix file.js// исправить как можно больше проблем. Исправления вносятся в сами файлы, и выводятся только оставшиеся неисправленные проблемы.
+  //Error: Failed to load parser 'babel-eslint' declared in '.eslintrc.js': => //npm install eslint@4.x babel-eslint@8 - g - 
+  // npx eslint -h//help
+  // npx eslint --fix file.js// исправить как можно больше проблем. Исправления вносятся в сами файлы, и выводятся только оставшиеся неисправленные проблемы.
+  // npm run lint
+  // npm run lint:fix
 };
