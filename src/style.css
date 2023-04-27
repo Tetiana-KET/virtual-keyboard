@@ -22,3 +22,86 @@
   box-shadow: 1px 1px 1px #403e3e;
   margin-bottom: 25px;
 }
+.key-board {
+  padding: 10px;
+  row-gap: 10px;
+  border-radius: 5px;
+  border: 1px solid #1a1919;
+  box-shadow: 1px 1px 1px #403e3e;
+  margin-bottom: 25px;
+  width: 70%;
+  min-height: 200px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.key-board__keys {
+  /* text-align: center; */
+  row-gap: 5px;
+  column-gap: 5px;
+}
+.key-board__key {
+  height: 45px;
+  width: 9%;
+  max-width: 45px;
+  border-radius: 5px;
+  border: 1px solid #1a1919;
+  box-shadow: 1px 1px 1px #464444;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: azure;
+  text-align: center;
+  transition: all .4s;
+  font-size: 1.2rem;
+  outline: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: top;
+  -webkit-tap-highlight-color: transparent;/*for mobile devices*/
+  position: relative;/*for caps-light position absolute*/
+}
+.key-board__key:hover {
+  background-color: rgba(0, 0, 0, 0.65);
+  box-shadow: none;
+}
+.key-board__key:active {
+  background-color: rgba(0, 0, 0, 0.65);
+  box-shadow: none;
+}
+.key-board__key_special {
+  background-color: rgba(0, 0, 0, 0.8);
+  font-weight: bold;
+  color: #ffffff;
+}
+.key-board__key_special:active {
+  background-color: rgba(0, 0, 0, 1);
+  box-shadow: none;
+}
+.key-board__key_special:hover {
+  background-color: rgba(0, 0, 0, 0.65);
+  box-shadow: none;
+}
+.key-board__key_wide {
+  width: 12%;
+  max-width: 90px;
+}
+.key-board__key_wider {
+  width: 12%;
+  max-width: 100px;
+}
+.key-board__key_extra-wide {
+  width: 36%;
+  max-width: 500px;
+}
+.key-board__key_active-caps::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.5);
+}
+.key-board__key_active::after {
+  background: #08ff00;
+}
