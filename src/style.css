@@ -33,7 +33,7 @@
   min-height: 200px;
   background-color: rgba(0, 0, 0, 0.2);
 }
-.key-board__keys {
+.key-board__keys-container {
   /* text-align: center; */
   row-gap: 5px;
   column-gap: 5px;
