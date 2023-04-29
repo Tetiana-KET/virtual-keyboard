@@ -23,6 +23,10 @@
   box-shadow: 1px 1px 1px #403e3e;
   margin-bottom: 25px;
 }
+.text-area:focus {
+  outline: none;
+  border-color: rgb(104 175 116);;
+}
 .key-board {
   padding: 10px;
   border-radius: 5px;
@@ -37,9 +41,6 @@
 .key-board__key:last-child {
   width: 10%;
   max-width: 54px;
-}
-.key-board__keys-container {
-  /* text-align: center; */
 }
 .key-board__key {
   height: 45px;
@@ -68,7 +69,7 @@
   box-shadow: none;
 }
 .key-board__key:active {
-  background-color: rgba(0, 0, 0, 0.65);
+  background-color: rgba(31, 170, 57, 0.65);
   box-shadow: none;
 }
 .key-board__key_special {
@@ -77,7 +78,7 @@
   color: #ffffff;
 }
 .key-board__key_special:active {
-  background-color: rgba(0, 0, 0, 1);
+  background-color: rgba(31, 170, 57, 0.65);
   box-shadow: none;
 }
 .key-board__key_special:hover {
@@ -101,7 +102,7 @@
   max-width: 380px;
   background-color: rgba(0, 0, 0, 0.5);
 }
-.key-board__key_active-caps::after {
+.key-board__key_caps::after {
   content: '';
   width: 8px;
   height: 8px;
@@ -111,6 +112,6 @@
   right: 5px;
   background: rgba(242, 244, 246, 0.5);
 }
-.key-board__key_active::after {
+.key-board__key_active-caps::after {
   background: #08ff00;
 }
