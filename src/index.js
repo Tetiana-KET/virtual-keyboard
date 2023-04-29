@@ -23,6 +23,11 @@ const keyBoardKeys = document.createElement("div");
 keyBoardKeys.classList.add("key-board__keys-container");
 keyBoard.append(keyBoardKeys);
 
+//value for text area
+let value = "";
+//caps
+let caps = false;
+
 //KEY
 const keyList = [
   "`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "backspace",
@@ -30,6 +35,14 @@ const keyList = [
   "CapsLock", "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'", "Enter",
   "Shift", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?", "", "Shift",
   "Ctrl", "win", "Alt", "space", "Alt", "", "", "", "Ctrl"
+];
+
+const letters = [
+  "`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=",
+  "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]", "/", 
+  "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'",
+  "z", "x", "c", "v", "b", "n", "m", ",", ".", "?", "",
+  "", "", "",
 ];
 
 keyList.forEach((elem, i, arr) => {
@@ -45,7 +58,7 @@ keyList.forEach((elem, i, arr) => {
   if (specialKeys || elem === "") {
     key.classList.add("key-board__key_special");
   }
-  if (elem === "Tab" || elem === "del") {
+  if (elem === "del" || elem === "Tab") {
     key.classList.add("key-board__key_wide");
   }
   if (widerKeys) {
@@ -53,11 +66,33 @@ keyList.forEach((elem, i, arr) => {
   }
   if (elem === "space") {
     key.classList.add("key-board__key_extra-wide");
+    key.addEventListener("click", () => {
+      value += " ";
+    });
   }
   if (elem === "backspace") {
     key.classList.add("backspace");
+    key.addEventListener("click", () => {
+      value = value.substring(0, value.length - 1);
+    });
   }
   if(elem === "CapsLock") {
     key.classList.add("key-board__key_caps");
+    key.addEventListener("click", () => {
+      key.classList.toggle("key-board__key_active-caps");
+      caps = !caps;
+    });
   }
+  if (elem === "Enter") {
+    key.addEventListener("click", () => {
+      value += "\n";
+    });
+  }
+  key.addEventListener("click", (e) => {
+    if (letters.includes(e.target.textContent)) {
+      value += caps ? key.textContent.toUpperCase() : key.textContent.toLowerCase();
+    }
+    
+    console.log(value);
+  });
 });
