@@ -58,6 +58,6 @@ keyList.forEach((elem, i, arr) => {
     key.classList.add("backspace");
   }
   if(elem === "CapsLock") {
-    key.classList.add("key-board__key_active-caps");
+    key.classList.add("key-board__key_caps");
   }
 });
