@@ -62,14 +62,6 @@
   position: relative;/*for caps-light position absolute*/
   margin: 0.2em;
 }
-.key-board__key:hover {
-  background-color: rgba(31, 170, 57, 0.3);
-  box-shadow: none;
-}
-.key-board__key:active {
-  background-color: rgba(31, 170, 57, 0.8);
-  box-shadow: none;
-}
 .key-board__key_special {
   background-color: rgba(0, 0, 0, 0.8);
   font-weight: bold;
@@ -104,4 +96,8 @@
 }
 .key-board__key_active-caps::after {
   background: #08ff00;
+}
+.active {
+  background-color: rgba(31, 170, 57, 0.9);
+  box-shadow: none;
 }
