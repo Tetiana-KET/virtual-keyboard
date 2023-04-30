@@ -59,11 +59,17 @@ function keyboardInit () {
     key.textContent = arr[i];
     keyBoardKeys.append(key);
 
-    if (specialKeys || elem === "") {
+    if (specialKeys) {
       key.classList.add("key-board__key_special");
     }
-    if (elem === "del" || elem === "Tab") {
+    if (elem === "del") {
       key.classList.add("key-board__key_wide");
+    }
+    if (elem === "Tab") {
+      key.classList.add("key-board__key_wide");
+      key.addEventListener("click", () => {
+        value += "\t";
+      });
     }
     if (widerKeys) {
       key.classList.add("key-board__key_wider");
