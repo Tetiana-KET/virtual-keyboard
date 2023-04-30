@@ -160,17 +160,69 @@ function keyboardInit () {
   });
 
   document.onkeydown = function (event) {
+    //TOGGLE ACTIVE
     keys.forEach((elem) => {
       if(event.key.toLowerCase() === elem.textContent.toLowerCase()) {
         elem.classList.add("active");
         deleteClassActive();
-      } else if ((specialKeys.includes(elem.textContent))) {
+      } 
+      if ((specialKeys.includes(elem.textContent))) {
         if (event.key === elem.getAttribute("data")) {
           elem.classList.add("active");
           deleteClassActive();
         }
       }
     });
+    
+    if (event.key === "Enter") {
+      value += "\n";
+    }
+    if (event.code === "Space") {
+      value += " ";
+    }
+    if (event.key === "Backspace") {
+      value = value.substring(0, value.length - 1);
+    }
+    if (event.key === "Tab") {
+      value += "\t";
+    }
+    
+    //ARROWS
+    if (event.key === "ArrowUp") {
+      value += "▲";
+    }
+    if (event.key === "ArrowLeft") {
+      value += "◄";
+    }
+    if (event.code === "ArrowDown") {
+      value += "▼";
+    }
+    if (event.key === "ArrowRight") {
+      value += "►";
+    }
+    
+    //CAPSLOCK
+    if(event.key === "CapsLock") {
+      caps = !caps;
+      for (const key of keys) {
+        if (key.getAttribute("data") === "CapsLock") {
+          key.classList.toggle("key-board__key_active-caps");
+        }
+      }
+    
+      keys = document.querySelectorAll(".key-board__key");
+      for (const key of keys) {
+        if (!key.classList.contains("key-board__key_special")) {
+          key.textContent = caps ? key.textContent.toUpperCase() : key.textContent.toLowerCase();
+        }
+      }
+    }
+    // LETTERS
+    if (letters.includes(event.key.toLowerCase())) {
+      value += caps ? event.key.toUpperCase() : event.key.toLowerCase();
+    }
+
+    textArea.value = value; 
   };
 }
 
