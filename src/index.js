@@ -1,3 +1,4 @@
+import {showSelfEsteem} from "./selfEsteem.js";
 function keyboardInit () {
   const wrapper = document.createElement("div");
   wrapper.classList.add("wrapper");
@@ -229,3 +230,4 @@ function keyboardInit () {
 window.addEventListener("DOMContentLoaded", function () {
   keyboardInit();
 });
+showSelfEsteem();
