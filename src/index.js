@@ -12,6 +12,7 @@ function keyboardInit () {
   //TEXT AREA
   const textArea = document.createElement("textarea");
   textArea.classList.add("text-area");
+  textArea.setAttribute("value", "");
   wrapper.append(textArea);
 
   //KEYBORD
@@ -92,8 +93,7 @@ function keyboardInit () {
       if (letters.includes(e.target.textContent)) {
         value += caps ? key.textContent.toUpperCase() : key.textContent.toLowerCase();
       }
-      
-      textArea.textContent = value;
+      textArea.value = value;
     });
   });
 }
