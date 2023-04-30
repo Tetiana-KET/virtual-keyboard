@@ -12,7 +12,6 @@
   margin-bottom: 25px;
 }
 .text-area {
-  /* width: 66%; */
   width: 835px;
   min-height: 240px;
   resize: vertical;
@@ -33,7 +32,6 @@
   border: 1px solid #1a1919;
   box-shadow: 1px 1px 1px #403e3e;
   margin-bottom: 25px;
-  /* width: 76%; */
   width: 835px;
   min-height: 200px;
   background-color: rgba(0, 0, 0, 0.2);

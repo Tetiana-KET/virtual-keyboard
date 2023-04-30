@@ -100,13 +100,27 @@ function keyboardInit () {
       });
     }
     key.addEventListener("click", (e) => {
-
       if (letters.includes(e.target.textContent.toLowerCase())) {
         value += caps ? key.textContent.toUpperCase() : key.textContent.toLowerCase();
       }
       textArea.value = value; 
     });
   });
+
+  keys = document.querySelectorAll(".key-board__key");
+
+  function toggleActive (e) {
+    e.target.classList.add("active");
+    setTimeout(()=>{
+      keys.forEach((elem) => {
+        elem.classList.remove("active");
+      });
+    }, 300);
+  }
+  keys.forEach((elem) => {
+    elem.addEventListener("click", toggleActive);
+  });
+
 }
 
 
