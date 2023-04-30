@@ -1,0 +1,103 @@
+.wrapper {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.title {
+  text-align: center;
+  color: rgb(104 175 116);
+  text-shadow: 2px 2px 2px rgb(33, 58, 52);
+  font-size: 3rem;
+  margin-bottom: 25px;
+}
+.text-area {
+  width: 835px;
+  min-height: 240px;
+  resize: vertical;
+  padding: 10px;
+  line-height: 1.5em;
+  border-radius: 5px;
+  border: 1px solid #938f8f;
+  box-shadow: 1px 1px 1px #403e3e;
+  margin-bottom: 25px;
+}
+.text-area:focus {
+  outline: none;
+  border-color: rgb(104 175 116);;
+}
+.key-board {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #1a1919;
+  box-shadow: 1px 1px 1px #403e3e;
+  margin-bottom: 25px;
+  width: 835px;
+  min-height: 200px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.key-board__key:last-child {
+  width: 10%;
+  max-width: 54px;
+}
+.key-board__key {
+  height: 45px;
+  width: 7%;
+  max-width: 45px;
+  border-radius: 5px;
+  border: 1px solid #1a1919;
+  box-shadow: 1px 1px 1px #464444;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  text-align: center;
+  transition: all .4s;
+  font-size: 1.2rem;
+  outline: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: top;
+  -webkit-tap-highlight-color: transparent;/*for mobile devices*/
+  position: relative;/*for caps-light position absolute*/
+  margin: 0.2em;
+}
+.key-board__key_special {
+  background-color: rgba(0, 0, 0, 0.8);
+  font-weight: bold;
+  color: #ffffff;
+}
+.backspace {
+  width: 17%;
+  max-width: 117px;
+}
+.key-board__key_wide {
+  width: 9%;
+  max-width: 55px;
+}
+.key-board__key_wider {
+  width: 14%;
+  max-width: 107px;
+}
+.key-board__key_extra-wide {
+  width: 45.6%;
+  max-width: 380px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.key-board__key_caps::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: rgba(242, 244, 246, 0.5);
+}
+.key-board__key_active-caps::after {
+  background: #08ff00;
+}
+.active {
+  background-color: rgba(31, 170, 57, 0.9);
+  box-shadow: none;
+}
