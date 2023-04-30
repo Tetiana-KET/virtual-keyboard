@@ -52,13 +52,27 @@ function keyboardInit () {
     const specialKeys = ["backspace", "Tab", "del", "CapsLock", "Enter", "Shift", "Ctrl", "win", "Alt", "space", "▲",
       "◄", "▼", "►"].indexOf(elem) !== -1;
     const widerKeys = ["CapsLock", "Enter", "Shift"].indexOf(elem) !== -1;
+    const arrows = [ "▲", "◄", "▼", "►"];
 
     const key = document.createElement("button");
     key.setAttribute("type", "button");
+    key.setAttribute("data", `${elem}`);
     key.classList.add("key-board__key");
     key.textContent = arr[i];
     keyBoardKeys.append(key);
 
+    if (arrows.includes(elem)) {
+      switch(elem) {
+      case "▲": key.setAttribute("data", "ArrowUp");
+        break;
+      case "◄": key.setAttribute("data", "ArrowLeft");
+        break;
+      case "▼": key.setAttribute("data", "ArrowDown");
+        break;
+      case "►": key.setAttribute("data", "ArrowRight");
+        break;
+      }
+    }
     if (specialKeys) {
       key.classList.add("key-board__key_special");
     }
@@ -115,20 +129,32 @@ function keyboardInit () {
 
   keys = document.querySelectorAll(".key-board__key");
 
-  function toggleActive (e) {
-    e.target.classList.add("active");
+  function deleteClassActive () {
     setTimeout(()=>{
       keys.forEach((elem) => {
         elem.classList.remove("active");
       });
     }, 300);
   }
+
+  function toggleActive (e) {
+    e.target.classList.add("active");
+    deleteClassActive();
+  }
+
   keys.forEach((elem) => {
     elem.addEventListener("click", toggleActive);
   });
 
+  document.onkeydown = function (event) {
+    keys.forEach((elem) => {
+      if(event.key.toLowerCase() === elem.textContent.toLowerCase()) {
+        elem.classList.add("active");
+        deleteClassActive();
+      } 
+    });
+  };
 }
-
 
 window.addEventListener("DOMContentLoaded", function () {
   keyboardInit();
