@@ -33,7 +33,7 @@ function keyboardInit () {
   //KEY
   let keys = [];
   const keyList = [
-    "`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "backspace",
+    "`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "Backspace",
     "Tab", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]", "/", "del",
     "CapsLock", "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'", "Enter",
     "Shift", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?", "▲", "Shift",
@@ -48,11 +48,16 @@ function keyboardInit () {
     "◄", "▼", "►",
   ];
 
+  const specialKeys = ["Backspace", "Tab", "del", "CapsLock", "Enter", "Shift", "Ctrl", "win", "Alt", "space", "▲",
+    "◄", "▼", "►"
+  ];
+
   keyList.forEach((elem, i, arr) => {
-    const specialKeys = ["backspace", "Tab", "del", "CapsLock", "Enter", "Shift", "Ctrl", "win", "Alt", "space", "▲",
-      "◄", "▼", "►"].indexOf(elem) !== -1;
+    const specialKeys = ["Backspace", "Tab", "del", "CapsLock", "Enter", "Shift", "Ctrl", "win", "Alt", "space", "▲",
+      "◄", "▼", "►"
+    ].indexOf(elem) !== -1;
+
     const widerKeys = ["CapsLock", "Enter", "Shift"].indexOf(elem) !== -1;
-    const arrows = [ "▲", "◄", "▼", "►"];
 
     const key = document.createElement("button");
     key.setAttribute("type", "button");
@@ -61,7 +66,7 @@ function keyboardInit () {
     key.textContent = arr[i];
     keyBoardKeys.append(key);
 
-    if (arrows.includes(elem)) {
+    if (specialKeys) {
       switch(elem) {
       case "▲": key.setAttribute("data", "ArrowUp");
         break;
@@ -70,6 +75,14 @@ function keyboardInit () {
       case "▼": key.setAttribute("data", "ArrowDown");
         break;
       case "►": key.setAttribute("data", "ArrowRight");
+        break;
+      case "del": key.setAttribute("data", "Delete");
+        break;
+      case "space": key.setAttribute("data", " ");
+        break;
+      case "win": key.setAttribute("data", "Meta");
+        break;
+      case "Ctrl": key.setAttribute("data", "Control");
         break;
       }
     }
@@ -94,7 +107,7 @@ function keyboardInit () {
         value += " ";
       });
     }
-    if (elem === "backspace") {
+    if (elem === "Backspace") {
       key.classList.add("backspace");
       key.addEventListener("click", () => {
         value = value.substring(0, value.length - 1);
@@ -151,7 +164,12 @@ function keyboardInit () {
       if(event.key.toLowerCase() === elem.textContent.toLowerCase()) {
         elem.classList.add("active");
         deleteClassActive();
-      } 
+      } else if ((specialKeys.includes(elem.textContent))) {
+        if (event.key === elem.getAttribute("data")) {
+          elem.classList.add("active");
+          deleteClassActive();
+        }
+      }
     });
   };
 }
