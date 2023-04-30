@@ -29,7 +29,9 @@ function keyboardInit () {
   let value = "";
   //caps
   let caps = false;
+
   //KEY
+  let keys = [];
   const keyList = [
     "`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "backspace",
     "Tab", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]", "/", "del",
@@ -47,7 +49,8 @@ function keyboardInit () {
   ];
 
   keyList.forEach((elem, i, arr) => {
-    const specialKeys = ["backspace", "Tab", "del", "CapsLock", "Enter", "Shift", "Ctrl", "win", "Alt", "space"].indexOf(elem) !== -1;
+    const specialKeys = ["backspace", "Tab", "del", "CapsLock", "Enter", "Shift", "Ctrl", "win", "Alt", "space", "▲",
+      "◄", "▼", "►"].indexOf(elem) !== -1;
     const widerKeys = ["CapsLock", "Enter", "Shift"].indexOf(elem) !== -1;
 
     const key = document.createElement("button");
@@ -82,6 +85,13 @@ function keyboardInit () {
       key.addEventListener("click", () => {
         key.classList.toggle("key-board__key_active-caps");
         caps = !caps;
+
+        keys = document.querySelectorAll(".key-board__key");
+        for (const key of keys) {
+          if (!key.classList.contains("key-board__key_special")) {
+            key.textContent = caps ? key.textContent.toUpperCase() : key.textContent.toLowerCase();
+          }
+        }
       });
     }
     if (elem === "Enter") {
@@ -90,10 +100,11 @@ function keyboardInit () {
       });
     }
     key.addEventListener("click", (e) => {
-      if (letters.includes(e.target.textContent)) {
+
+      if (letters.includes(e.target.textContent.toLowerCase())) {
         value += caps ? key.textContent.toUpperCase() : key.textContent.toLowerCase();
       }
-      textArea.value = value;
+      textArea.value = value; 
     });
   });
 }
