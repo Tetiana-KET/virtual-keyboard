@@ -22,7 +22,7 @@ module.exports = {
     "no-use-before-define": "error",//Disallow the use of variables before they are defined
     "eqeqeq": "warn",//Require the use of === and !==
     "curly": "error",//Enforce consistent brace style for all control statements
-    "quotes": ["error", "double"],//Enforce the consistent use of either backticks, double, or single quotes
+    "quotes": ["error", "double", { "allowTemplateLiterals": true }],//Enforce the consistent use of either backticks, double, or single quotes
     "space-infix-ops": ["error", { "int32Hint": false }],//Требовать пробелы вокруг инфиксных операторов =/+/-
     "key-spacing": ["error", { "afterColon": true }]
   },
