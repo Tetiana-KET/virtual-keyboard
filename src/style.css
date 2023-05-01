@@ -101,3 +101,16 @@
   background-color: rgba(31, 170, 57, 0.9);
   box-shadow: none;
 }
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.info__text {
+  font-size: 1.7rem;
+  text-align: center;
+}
+.info__text_bold {
+  font-weight: bold;
+}
+

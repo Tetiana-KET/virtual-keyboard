@@ -24,6 +24,25 @@ function keyboardEnInit () {
   const keyBoardKeys = document.createElement("div");
   keyBoardKeys.classList.add("key-board__keys-container");
   keyBoard.append(keyBoardKeys);
+
+  const info = document.createElement("div");
+  info.classList.add("info");
+  wrapper.append(info);
+
+  const infoText = document.createElement("p");
+  infoText.classList.add("info__text");
+  infoText.textContent = "Клавиатура создана в операционной системе Windows";
+  info.append(infoText);
+
+  const infoText2 = document.createElement("p");
+  infoText2.classList.add("info__text");
+  infoText2.textContent = "Не успела доделать языки, работает только англ. раскладка.";
+  info.append(infoText2);
+
+  const infoText3 = document.createElement("p");
+  infoText3.classList.add("info__text", "info__text_bold");
+  infoText3.textContent = "На компе должна быть выбрана англ. раскладка.";
+  info.append(infoText3);
   
   //value for text area
   let value = "";
